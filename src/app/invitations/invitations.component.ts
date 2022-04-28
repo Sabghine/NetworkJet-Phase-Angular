@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {InvitationService} from "../shared/Invitations/invitation.service";
+import {Invitation} from "../Models/Invitation";
 
 @Component({
   selector: 'app-invitations',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvitationsComponent implements OnInit {
 
-  constructor() { }
+  listInvitations : Invitation[];
+  constructor(private _service:InvitationService) { }
 
   ngOnInit(): void {
+
+    this._service.getInvitation().subscribe(res=>{console.log(res);
+
+      this.listInvitations=res});
   }
 
 }

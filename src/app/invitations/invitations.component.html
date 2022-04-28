@@ -1,1 +1,35 @@
 <p>invitations works!</p>
+<ul>
+
+  <!-- Basic table -->
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Liste des invitations</h5>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Message</th>
+          <th>Token</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of listInvitations">
+        <tr>
+          <td>{{ u.idInvitation }}</td>
+          <td>{{ u.date_expiration }}</td>
+          <td>{{ u.message }}</td>
+          <td>{{ u.token }}</td>
+          <td>{{ u.email }}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /basic table -->
+</ul>
