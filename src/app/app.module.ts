@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SendInvitationComponent } from './send-invitation/send-invitation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InvitationsComponent
+    InvitationsComponent,
+    SendInvitationComponent
   ],
   imports: [
     BrowserModule,

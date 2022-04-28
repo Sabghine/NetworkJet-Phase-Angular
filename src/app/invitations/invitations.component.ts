@@ -19,4 +19,9 @@ export class InvitationsComponent implements OnInit {
       this.listInvitations=res});
   }
 
+  // deleteInvitation(id:number){
+  //   this._service.deleteInvitationById(id).subscribe(()=>this._service.getInvitation().subscribe(res=>{this.listInvitations=res})
+  // );
+  // }
+
 }
