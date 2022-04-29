@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import {HttpClientModule} from "@angular/common/http";
 import { SendInvitationComponent } from './send-invitation/send-invitation.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { SendInvitationComponent } from './send-invitation/send-invitation.compo
     InvitationsComponent,
     SendInvitationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Invitation} from "../Models/Invitation";
 import {InvitationService} from "../shared/Invitations/invitation.service";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-send-invitation',
@@ -10,12 +11,20 @@ import {Router} from "@angular/router";
 })
 export class SendInvitationComponent implements OnInit {
   invitation:Invitation = new Invitation();
-  constructor(private inv:InvitationService, private _router:Router) { }
+  public form: FormGroup;
+  constructor(public fb: FormBuilder,private inv:InvitationService, private _router:Router) {
+    this.form = this.fb.group({
+      content: [null, Validators.compose([Validators.required])],
+    });
+  }
 
-  // sendInvitation(){
-  //   this.inv.sendInvitation(this.invitation).subscribe(()=>this._router.navigateByUrl("/invitation/sendInvitation")
-  //   )
-  // }
+
+  sendInvitation(invitation: Invitation) {
+    this.inv.sendInvitation(invitation).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
 
   ngOnInit(): void {
   }
