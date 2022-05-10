@@ -1,4 +1,4 @@
-<form>
+<form >
   <fieldset class="mb-3">
     <legend class="text-uppercase font-size-sm font-weight-bold">Send invitation</legend>
 
@@ -12,18 +12,17 @@
     <div class="form-group row">
       <label class="col-form-label col-lg-2">message</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message">
+        <input type="text" name="invitation.message" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message">
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">Email</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email">
+        <input type="text" name="invitation.email" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email">
       </div>
     </div>
     </fieldset>
-  <button (click)="sendInvitation()" type="button"
-          class="btn btn-primary m-t-15 waves-effect">Submit</button>
+  <input routerLink="/invitations" class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="onSubmit()">
 
 </form>

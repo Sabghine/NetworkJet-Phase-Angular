@@ -11,13 +11,28 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class SendInvitationComponent implements OnInit {
   invitation:Invitation = new Invitation();
-  constructor(private inv:InvitationService, private _router:Router){}
+  message:string;
+  constructor(private invitationService:InvitationService, private _router:Router){}
+
+
+  ngOnInit(): void {
+  }
 
   sendInvitation(){
-    this.inv.sendInvitation(this.invitation);
-    this._router.navigateByUrl("/invitation");
+    this.invitationService.createInvitation(this.invitation).subscribe(data =>{
+        console.log(data);
+      },
+      error => console.log(error));
   }
-  ngOnInit(): void {
+
+  goToInvitationList(){
+    this._router.navigate(['models']);
+  }
+
+  onSubmit(){
+    console.log(this.invitation);
+    this.sendInvitation();
+    this.message= "Invitation" + "   " + this.invitation.idInvitation + " " + "ajouté avec succés!";
 
   }
 

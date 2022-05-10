@@ -15,14 +15,8 @@ export class InvitationService {
     return this._http.get<Invitation[]>(this.invitationsUrl);
   }
 
-  // deleteInvitationById(id:number){
-  //   return
-  //   this._http.delete("http://localhost:8089/networkJet/api/invitation /this.deleteInvitationById()/"+id);
-  // }
-
-  sendInvitation(invitation:Invitation){
-    return
-    this._http.post<Invitation>("http://localhost:8089/networkJet/api/invitation",invitation);
+  createInvitation(inv: Invitation): Observable<Invitation>{
+    return this._http.post<Invitation>(`${this.invitationsUrl}`, inv);
   }
 
 }

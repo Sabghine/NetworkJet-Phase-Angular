@@ -6,9 +6,12 @@ import {SendInvitationComponent} from "./send-invitation/send-invitation.compone
 
 const routes: Routes = [
   {path : 'home' , component : HomeComponent},
-  {path : 'invitations', component : InvitationsComponent, children:[
-      {path : 'sendInvitation', component : SendInvitationComponent}
-    ]},
+  {path : 'invitations', component : InvitationsComponent},
+  {path : 'sendInvitation', component : SendInvitationComponent},
+    // children:[
+    //   {path : 'sendInvitation', component : SendInvitationComponent}
+    // ]},
+
   {path : '**' , component : InvitationsComponent}
 ];
 
