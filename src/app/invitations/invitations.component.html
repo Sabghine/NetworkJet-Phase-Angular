@@ -1,19 +1,19 @@
 <ul>
 
+  <li class="active">
+
+    <a [routerLink]="['/invitations/sendInvitation']">
+      <button class="btn btn-success">Send Invitation</button>
+    </a>
+  </li>
+  <router-outlet></router-outlet>
+
   <!-- Basic table -->
   <div class="card">
     <div class="card-header">
       <h5 class="card-title">Invitations list</h5>
     </div>
 
-    <li class="active">
-
-      <a [routerLink]="['/invitations/sendInvitation']">
-        <button class="btn btn-success">Send Invitation</button>
-      </a>
-    </li>
-
-    <app-send-invitation></app-send-invitation>
     <li></li>
 
     <div class="table-responsive">

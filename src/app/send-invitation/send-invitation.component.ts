@@ -11,22 +11,15 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class SendInvitationComponent implements OnInit {
   invitation:Invitation = new Invitation();
-  public form: FormGroup;
-  constructor(public fb: FormBuilder,private inv:InvitationService, private _router:Router) {
-    this.form = this.fb.group({
-      content: [null, Validators.compose([Validators.required])],
-    });
+  constructor(private inv:InvitationService, private _router:Router){}
+
+  sendInvitation(){
+    this.inv.sendInvitation(this.invitation);
+    this._router.navigateByUrl("/invitation");
   }
-
-
-  sendInvitation(invitation: Invitation) {
-    this.inv.sendInvitation(invitation).subscribe((res) => {
-      console.log(res);
-    });
-  }
-
-
   ngOnInit(): void {
+
   }
+
 
 }

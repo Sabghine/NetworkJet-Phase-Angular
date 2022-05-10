@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="sendInvitation(form.value)">
+<form>
   <fieldset class="mb-3">
     <legend class="text-uppercase font-size-sm font-weight-bold">Send invitation</legend>
 
@@ -24,5 +24,6 @@
     </div>
     </fieldset>
   <button (click)="sendInvitation()" type="button"
-          class="btn btn-primary m-t-15 waves-effect">Send</button>
+          class="btn btn-primary m-t-15 waves-effect">Submit</button>
+
 </form>

@@ -22,7 +22,7 @@ export class InvitationService {
 
   sendInvitation(invitation:Invitation){
     return
-    this._http.post<Invitation>("http://localhost:8089/networkJet/api/invitation/sendInvitation",invitation);
+    this._http.post<Invitation>("http://localhost:8089/networkJet/api/invitation",invitation);
   }
 
 }
