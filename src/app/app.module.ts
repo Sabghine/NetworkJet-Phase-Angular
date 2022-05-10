@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComplaintService } from './complaint.service';
 import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 
@@ -16,7 +17,7 @@ import { InvitationsComponent } from './invitations/invitations.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ComplaintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
