@@ -10,6 +10,8 @@ import { ComplaintService } from './complaint.service';
 })
 export class AppComponent implements OnInit {
   public complaints: Complaint[];
+  public editComplaint: Complaint;
+  public deleteComplaint: Complaint;
 
   constructor(private complaintService: ComplaintService) { }
 
@@ -28,6 +30,27 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public onOpenModal(complaint: Complaint, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addComplaintModal');
+    }
+    if (mode === 'edit') {
+      this.editComplaint = complaint;
+      button.setAttribute('data-target', '#updateComplainModal');
+    }
+    if (mode === 'delete') {
+      this.deleteComplaint = complaint;
+      button.setAttribute('data-target', '#deleteComplaintModal');
+    }
+    container.appendChild(button);
+    button.click();
   }
 
 }
