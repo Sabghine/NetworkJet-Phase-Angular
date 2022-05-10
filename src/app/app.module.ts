@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,10 +13,12 @@ import { InvitationsComponent } from './invitations/invitations.component';
     AppComponent,
     HomeComponent,
     InvitationsComponent
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ComplaintService],
   bootstrap: [AppComponent]

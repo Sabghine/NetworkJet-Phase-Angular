@@ -9,11 +9,11 @@ import { ComplaintService } from './complaint.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public complaints : Complaint[];
+  public complaints: Complaint[];
 
-  constructor(private complaintService : ComplaintService){}
+  constructor(private complaintService: ComplaintService) { }
 
-  
+
   ngOnInit() {
     this.getComplaints();
   }
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     this.complaintService.getComplaints().subscribe(
       (response: Complaint[]) => {
         this.complaints = response;
-        console.log(this.complaints);
+        console.log('this.complaints', this.complaints);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
