@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ComplaintService } from './complaint.service';
 import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InvitationsComponent } from './invitations/invitations.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule 
   ],
   providers: [ComplaintService],
   bootstrap: [AppComponent]

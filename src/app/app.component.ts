@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Complaint } from './complaint';
 import { ComplaintService } from './complaint.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,62 @@ export class AppComponent implements OnInit {
     );
   }
 
+
+  public onAddComplaint(addForm: NgForm): void {
+    document.getElementById('add-complaint-form').click();
+    this.complaintService.addComplaint(addForm.value).subscribe(
+      (response: Complaint) => {
+        console.log(response);
+        this.getComplaints();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    );
+  }
+
+
+  public onUpdateComplaint(complaint: Complaint): void {
+    this.complaintService.updateComplaint(complaint).subscribe(
+      (response: Complaint) => {
+        console.log(response);
+        this.getComplaints();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public onDeleteComplaint(complaintId: number): void {
+    this.complaintService.deleteComplaint(complaintId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getComplaints();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public searchComplaints(key: string): void {
+    console.log(key);
+    const results: Complaint[] = [];
+    for (const complaint of this.complaints) {
+      if (complaint.object.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(complaint);
+      }
+    }
+    this.complaints = results;
+    if (results.length === 0 || !key) {
+      this.getComplaints();
+    }
+  }
+
+
   public onOpenModal(complaint: Complaint, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -52,5 +109,7 @@ export class AppComponent implements OnInit {
     container.appendChild(button);
     button.click();
   }
+
+
 
 }

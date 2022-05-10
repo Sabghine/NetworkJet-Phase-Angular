@@ -1,8 +1,8 @@
 export interface Complaint {
-    id: Number;
+    id: number;
     object: String;
     description: String;
-    StatusComplaints: String;
+    StatusComplaint: String;
     dateComplaint: Date;
 
 }
