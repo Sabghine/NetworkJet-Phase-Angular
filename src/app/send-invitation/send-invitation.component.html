@@ -1,28 +1,52 @@
-<form >
+<form id="monForm" onsubmit="validateForm(this)">
   <fieldset class="mb-3">
     <legend class="text-uppercase font-size-sm font-weight-bold">Send invitation</legend>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">Date expiration</label>
       <div class="col-lg-10">
-        <input class="form-control" type="date" name="date" [(ngModel)]="invitation.date_expiration">
+        <input class="form-control" type="date" name="date" [(ngModel)]="invitation.date_expiration" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">message</label>
       <div class="col-lg-10">
-        <input type="text" name="invitation.message" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message">
+        <input type="text" name="invitation" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">Email</label>
       <div class="col-lg-10">
-        <input type="text" name="invitation.email" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email">
+        <input id="invitation" type="text" name="invitation.email" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email" required>
       </div>
     </div>
     </fieldset>
+
   <input routerLink="/invitations" class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="onSubmit()">
 
 </form>
+
+  <script>
+    function validateForm(evt) {
+      const name = document.getElementById("invitation").value;
+      const password = document.getElementById("invitation.message").value;
+
+      if (name == null || name == "") {
+        alert("Name can't be blank");
+        evt.preventDefault();
+      } else if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        evt.preventDefault();
+      }
+
+      // Cas de réussite
+
+      // Empêche le submit du formulaire
+      evt.preventDefault();
+    }
+
+  </script>
+
+
