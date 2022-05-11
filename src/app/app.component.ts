@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Complaint } from './complaint';
 import { ComplaintService } from './complaint.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,31 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+
+  
   public complaints: Complaint[];
   public editComplaint: Complaint;
   public deleteComplaint: Complaint;
 
-  constructor(private complaintService: ComplaintService) { }
+  constructor(private complaintService: ComplaintService , private router:Router ) { }
+  
+
+  public goToPage(pageName:string):void{
+    this.router.navigate([`${pageName}`]);
+  }
+
 
 
   ngOnInit() {
     this.getComplaints();
+    
   }
 
+
+  exportPdf(){}
+
+  
   public getComplaints(): void {
     this.complaintService.getComplaints().subscribe(
       (response: Complaint[]) => {
@@ -109,6 +125,8 @@ export class AppComponent implements OnInit {
     container.appendChild(button);
     button.click();
   }
+
+  
 
 
 

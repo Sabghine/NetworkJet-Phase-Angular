@@ -8,12 +8,17 @@ import { ComplaintService } from './complaint.service';
 import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import { FormsModule } from '@angular/forms';
+import { ChartsComponent } from './charts/charts.component';
+import { PdfComponent } from './pdf/pdf.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InvitationsComponent
+    InvitationsComponent,
+    ChartsComponent,
+    PdfComponent
   
   ],
   imports: [

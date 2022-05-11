@@ -24,8 +24,9 @@ export class ComplaintService {
 
   public updateComplaint(complaint: Complaint): Observable<Complaint> {
     return this.http.put<Complaint>(`${this.apiServerUrl}/complaint/update`, complaint);
-
   }
+
+  
 
   public deleteComplaint(complaintId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/complaint/delete/${complaintId}`);
