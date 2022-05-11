@@ -5,18 +5,13 @@ import {User} from "../Model/user";
 import {FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {RegistrationRequest} from "../Model/registration-request";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   private baseUrl = 'http://localhost:8900/'
-  islogin = false;
-  admin = false;
-  suser = false;
-  choixmenu: string = 'A';
-  listData: User[];
-  public dataForm: FormGroup;
 
   constructor(private _http: HttpClient, private router: Router) {
   }
@@ -31,6 +26,9 @@ export class UsersService {
 
   deleteById(id: number): Observable<any> {
     return this._http.delete(`${this.baseUrl}` + 'remove-user/' + id)
+  }
+  adduser(user:RegistrationRequest){
+    return this._http.post<RegistrationRequest>(`${this.baseUrl}` + 'Sign-Up',user);
   }
 
 }

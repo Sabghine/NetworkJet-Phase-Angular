@@ -1,4 +1,25 @@
 
+<body>
+
+<!-- Main navbar -->
+<div class="navbar navbar-expand-lg navbar-dark navbar-static">
+  <div class="navbar-brand ml-2 ml-lg-0">
+    <a href="index.html" class="d-inline-block">
+      <img src="../../../../global_assets/images/logo_light.png" alt="">
+    </a>
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center ml  -auto">
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link">
+          <i class="icon-user-lock"></i>
+          <span class="d-none d-lg-inline-block ml-2" >Login</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
 <!-- /main navbar -->
 
 
@@ -19,13 +40,12 @@
           <div class="row">
             <div class="col-lg-6 offset-lg-3">
               <div class="card mb-0">
-                <div class="card-body">
                   <div class="text-center mb-3">
                     <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-pill p-3 mb-3 mt-1"></i>
                     <h5 class="mb-0">Create account</h5>
-                    <form  (ngSubmit)="userRegister()">
-                      <span class="d-block text-muted">All fields are required</span>
 
+                    <form class="form">
+                      <span class="d-block text-muted">All fields are required</span>
 
                       <div class="form-group form-group-feedback form-group-feedback-right">
                         <input type="email" class="form-control" placeholder="please enter your email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -40,7 +60,7 @@
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group form-group-feedback form-group-feedback-right">
-                            <input type="text" class="form-control" placeholder=" First Name " [(ngModel)]="user.firstName"[ngModelOptions]="{standalone: true}"   #firstName="ngModel" required
+                            <input type="text" class="form-control" placeholder=" First Name " [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}"  #firstName="ngModel" required
                                    [class.is-invalid]="firstName.invalid  && firstName.touched ">
                             <small class ="text-danger" [class.d-none]="firstName.valid || firstName.untouched " > first Name is required field </small>
                             <div class="form-control-feedback">
@@ -51,7 +71,7 @@
 
                         <div class="col-lg-6">
                           <div class="form-group form-group-feedback form-group-feedback-right">
-                            <input type="text" class="form-control" placeholder=" Last Name " [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" #lastName="ngModel" required
+                            <input type="text" class="form-control" placeholder=" Last Name " [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}"   #lastName="ngModel" required
                                    [class.is-invalid]="lastName.invalid  && lastName.touched ">
                             <small class ="text-danger" [class.d-none]="lastName.valid || lastName.untouched " > lastName is required field </small>
                             <div class="form-control-feedback">
@@ -89,8 +109,8 @@
                         <div class="col-lg-6">
                           <div class="text-md-center">
                             <form action="/action_page.php">
-                              <label for="date" class="form-label" style="color: #6C757D ;width: 150px; height: 50px "><h6>Your Birthday:</h6></label>
-                              <input type="date" id="date" name="date"  [(ngModel)]="user.date" [ngModelOptions]="{standalone: true}" #date="ngModel" required style="width: 200px; height: 40px ">
+                              <label for="birthday" class="form-label" style="color: #6C757D ;width: 150px; height: 50px "><h6>Your Birthday:</h6></label>
+                              <input type="date" id="birthday" name="birthday"  [(ngModel)]="user.date"  [ngModelOptions]="{standalone: true}"  #date="ngModel" required style="width: 200px; height: 40px ">
 
                             </form>
                             <div class="form-control-feedback">
@@ -102,9 +122,9 @@
                       </div>
                     </form>
                   </div>
-
                   <div class="card-footer bg-teal-100 text-right">
-                    <button type="submit" class="btn btn-teal btn-labeled btn-labeled-right" class ="float-right" (click)="userRegister()"  class="icon-plus-circle2" style="background-color: #1C7B73 ;  border: none ; width: 150px; height: 50px ; color: #FFFFFF" > Create account</button>
+                    <div class="form-item">
+                    <button type="submit" class="btn btn-teal btn-labeled btn-labeled-right" class ="float-right" (click)="adduser()"  class="icon-plus-circle2" style="background-color: #1C7B73 ;  border: none ; width: 150px; height: 50px ; color: #FFFFFF" > Create account</button>
                     <button class="float-left btextual" [routerLink]="['/Sign-In']" style="background-color: #E9F6F5 ;  border: none ; width: 200px; height: 50px ; color: #12524C"> Existing user ? Login here ! </button>
                   </div>
                 </div>
@@ -150,6 +170,7 @@
 </div>
 <!-- /page content -->
 
+</body>
 
-
+<!-- Mirrored from demo.interface.club/limitless/demo/Template/layout_1/LTR/default/full/login_registration_advanced.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Apr 2022 23:37:56 GMT -->
 
