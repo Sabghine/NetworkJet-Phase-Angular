@@ -13,6 +13,12 @@ import { ProfileComponent } from './profile/profile.component';
 import {ToastrModule} from "ngx-toastr";
 import {RouterModule} from "@angular/router";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire/compat";
+import { UpdateUserComponent } from './update-user/update-user.component';
+
 
 
 @NgModule({
@@ -23,6 +29,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     LoginComponent,
     ProfileComponent,
     SignUpComponent,
+    ForgetPasswordComponent,
+    VerifyEmailComponent,
+    UpdateUserComponent,
 
 
   ],

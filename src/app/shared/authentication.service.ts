@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {map, Observable} from "rxjs";
+
 
 export class User {
   constructor(public status: string) {}
@@ -13,6 +14,11 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) {}
 // Provide username and password for authentication, and once authentication is successful,
 //store JWT token in session
+  findOne(id: number): Observable<User> {
+    return this.httpClient.get("http://localhost:8900/retrieve-user/" + id).pipe(
+      map((user:User) => user)
+    )
+  }
   authenticate(user) {
     return this.httpClient
       .post<any>("http://localhost:8900/Sign-In/", user)
@@ -36,4 +42,5 @@ export class AuthenticationService {
   logOut() {
     sessionStorage.removeItem("email");
   }
+
 }

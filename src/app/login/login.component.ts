@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.invalidLogin = true
-          this.error = error.message;
-
+          this.error = error.msg;
+          console.log("exception occured");
+          this.msg=" Bad credentials , please enter valid email and password ";
         }
       )
     );

@@ -12,7 +12,8 @@ import {RegistrationRequest} from "../Model/registration-request";
 })
 export class UsersService {
   private baseUrl = 'http://localhost:8900/'
-
+ private baseUrl1= 'http://localhost:8900/retrieve-user'
+  private baseUrl2='http://localhost:8900/updateUser'
   constructor(private _http: HttpClient, private router: Router) {
   }
 
@@ -20,8 +21,8 @@ export class UsersService {
     return this._http.get(`${this.baseUrl}` + 'retrieve-all-users/')
   }
 
-  retrieveById(id: number): Observable<any> {
-    return this._http.get(`${this.baseUrl}` + 'retrieve-user' + id)
+  retrieveById(id: number): Observable<User> {
+    return this._http.get<User>(`${this.baseUrl1}/${id}`);
   }
 
   deleteById(id: number): Observable<any> {
@@ -30,5 +31,9 @@ export class UsersService {
   adduser(user:RegistrationRequest){
     return this._http.post<RegistrationRequest>(`${this.baseUrl}` + 'Sign-Up',user);
   }
+  updateUser(id: number, user: User): Observable<Object>{
+    return this._http.put(`${this.baseUrl2}/${id}`, user);
+  }
+
 
 }
