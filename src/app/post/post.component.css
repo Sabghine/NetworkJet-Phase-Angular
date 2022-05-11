@@ -1,0 +1,31 @@
+.card {
+    border-radius : 25px !important;
+
+}
+.profileEdit{
+    margin-top: 37px;
+    margin-bottom: 37px;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 34px;
+    border: 1px solid rgb(175, 175, 175);
+    display: block;
+}
+
+.textAreaPost
+{
+    border: none !important;
+    border-bottom: 1px solid #a9a9a9 !important;
+    border-radius: 13px !important;
+    width: 80%;
+}
+.btnEdit{
+    background-color: #f58646;
+    padding: 15px;
+    font-size: 16px;
+    font-family: "Sgoe UI";
+    /* font-weight: bold; */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+}

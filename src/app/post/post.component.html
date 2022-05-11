@@ -1,0 +1,116 @@
+
+<!-- <div class="table-responsive profileEdit">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>content</th>
+        <th>caption</th>
+        <th>creation_date</th>
+        <th>likes</th>
+        <th>views</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let post of listPosts">
+      <tr>
+        <td>{{ post.content }}</td>
+        <td>{{ post.caption }}</td>
+        <td>{{ post.creation_date | date: "dd/MM/yyyy" }}</td>
+        <td>{{ post.likes }}</td>
+        <td>{{ post.views }}</td>
+        <td> 
+          <div *ngIf="post.caption">
+            <img src='{{ "http://localhost/UploadFile/uploads/" + post.caption }}' width="200" height="200">
+
+          </div>
+        </td>
+        <td>
+          <button
+            (click)="deletePost(post.id_post)"
+            matTooltip="Desactiver le compte"
+          >
+            Supprimer
+          </button>
+
+          <button (click)="setPost(post)" matTooltip="MODIFIER le compte">
+            modif
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<button type="button"  class="btn btn-dark" (click)="SortPost(1)">Sort</button>
+
+<router-outlet> </router-outlet>
+<div *ngFor="let post of listPosts | paginate : { itemsPerPage: tableSize, currentPage: page,totalItems: count };let i = index">
+  
+
+  <div class="card blog-horizontal">
+    <div class="card-body">
+      <div class="card-img-actions mr-3">
+        <div *ngIf="post.caption; else other_content">
+          <img class="card-img img-fluid" src='{{ "http://localhost/UploadFile/uploads/" + post.caption }}' >
+      
+      </div>
+      
+      <ng-template #other_content>        
+        <img class="card-img img-fluid" src="assets/global_assets/images/demo/images/blog2.jpg" alt="">
+      </ng-template>
+        <div class="card-img-actions-overlay card-img">
+          <a href="blog_single.html" class="btn btn-outline-white border-2 btn-icon rounded-pill">
+            <i class="icon-link"></i>
+          </a>
+        </div>
+      </div>
+  
+      <h5 class="font-weight-semibold mt-1 mb-3">
+        
+        {{post.content}}
+      </h5>   
+    </div>
+    <div class="card-footer d-sm-flex justify-content-sm-between align-items-sm-center">
+      <ul class="list-inline list-inline-dotted mb-3 mb-sm-0">
+        <li class="list-inline-item">By <a href="#" class="text-body">Issam Dziri</a></li>
+        <li class="list-inline-item">{{ post.creation_date | date: "dd/MM/yyyy" }}</li></ul>
+
+        <div>
+          <a (click)="LikePost(post.id_post)" class="text-body">{{post.likes}} <i class="icon-heart6 mr-2"></i></a>
+
+          <a (click)="deletePost(post.id_post)"  class="text-body"><i class="icon-cancel-square2 mr-2"></i></a>
+          <a (click)="setPost(post)" class="text-body"><i class="icon-pencil mr-2"></i></a>
+        </div>
+       
+</div>
+</div>
+</div>
+<div class="profileEdit">
+<form [formGroup]="form" (ngSubmit)="updatePost(form.value)">
+  <div class="form-group row">
+    
+      <textarea
+        formControlName="content"
+        rows="3"
+        cols="3"
+        class="textAreaPost"
+        placeholder="Default textarea"
+      ></textarea>
+  
+  </div>
+  <div *ngIf="form.controls['content'].errors?.['required']">
+    Valeur obligatoire
+  </div>
+  <button type="submit" ni-button [disabled]="!form.valid" class="btnEdit">Modifier</button>
+</form>
+{{ form.controls["content"].value }}
+
+</div>
+<pagination-controls
+    previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)" >
+</pagination-controls>
+
+
+

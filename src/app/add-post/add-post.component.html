@@ -1,0 +1,23 @@
+<div class="profileEdit">
+  <h1>Create New Post</h1>
+<form [formGroup]="form" (ngSubmit)="addPost(form.value)">
+  <div class="form-group row">
+    
+    <div class="col-lg-10">
+      <textarea
+        formControlName="content"
+        rows="3"
+        cols="3"
+        class="textAreaPost"
+        placeholder="Default textarea"
+      ></textarea>
+    </div>
+  </div>
+  <div *ngIf="form.controls['content'].errors?.['required']">
+    
+  </div> 
+  
+  <input type="file" class="btn btn-file"  (change)="onFileSelected($event)">
+  <button type="submit" ni-button [disabled]="!form.valid" class="btnEdit">Ajouter</button>
+</form>
+</div>
