@@ -1,0 +1,87 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row" [hidden]="!deleteMessage">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="alert alert-info alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>news Data Deleted</strong>
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-category" style="color: #F58646"> Here is a table of all Users</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table  class="table table-hover" datatable [dtOptions]="dtOptions"
+                      [dtTrigger]="dtTrigger"  >
+
+                <thead class=" text-primary">
+                <tr>
+                  <th class="font-weight-bold" style="color: #252B36">id</th>
+                  <th class="font-weight-bold" style="color: #252B36 "> firstName</th>
+                  <th class="font-weight-bold" style="color: #252B36">  lastName</th>
+                  <th class="font-weight-bold" style="color: #252B36"> email </th>
+                  <th class="font-weight-bold" style="color: #252B36"> date </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of users ">
+                  <td class="font-weight-bold" style="color: #252B36" > {{user.id}}</td>
+                  <td>{{user.firstName}}</td>
+                  <td>{{user.lastName}}</td>
+                  <td>{{user.email}}</td>
+
+                  <td>{{user.date | date: "dd/MM/yyyy"}}</td>
+                  <td><button (click)="deleteUser(user.id)" style="background-color: #E30613 ;  border: none"class='btn btn-primary'><i class="fa fa-futboll-0" style="background-color: #E30613 ;  border: none">Delete</i></button>
+
+                </tr>
+                </tbody><br>
+              </table>
+            </div>
+          </div>
+
+
+
+                  <!-- Modal body -->
+
+
+                  <!-- Modal footer -->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+<!--
+  <tr *ngFor="let user of users ">
+    <h1 class="font-weight-bold text-primary"> {{user.id}}</h1>
+    <h2>{{user.firstName}}</h2>
+    <h3>{{user.lastName}}</h3>
+    <h4>{{user.email}}</h4>
+
+    <td>{{user.date}}</td>
+    <td><button (click)="deleteUser(user.id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+
+
+  </tr>
+-->

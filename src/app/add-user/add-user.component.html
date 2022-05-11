@@ -1,0 +1,155 @@
+
+<!-- /main navbar -->
+
+
+<!-- Page content -->
+<div class="page-content">
+
+  <!-- Main content -->
+  <div class="content-wrapper">
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+      <!-- Content area -->
+      <div class="content d-flex justify-content-center align-items-center">
+
+        <!-- Registration form -->
+        <form action="https://demo.interface.club/limitless/demo/Template/layout_1/LTR/default/full/index.html" class="flex-fill">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="card mb-0">
+                <div class="card-body">
+                  <div class="text-center mb-3">
+                    <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-pill p-3 mb-3 mt-1"></i>
+                    <h5 class="mb-0">Create account</h5>
+                    <form  (ngSubmit)="userRegister()">
+                      <span class="d-block text-muted">All fields are required</span>
+
+
+                      <div class="form-group form-group-feedback form-group-feedback-right">
+                        <input type="email" class="form-control" placeholder="please enter your email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                               #email="ngModel"
+                               [class.is-invalid]="email.invalid  && email.touched ">
+                        <small class ="text-danger" [class.d-none]="email.valid || email.untouched " > Email is required field </small>
+                        <div class="form-control-feedback">
+                          <i class="icon-mention text-muted"></i>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group form-group-feedback form-group-feedback-right">
+                            <input type="text" class="form-control" placeholder=" First Name " [(ngModel)]="user.firstName"[ngModelOptions]="{standalone: true}"   #firstName="ngModel" required
+                                   [class.is-invalid]="firstName.invalid  && firstName.touched ">
+                            <small class ="text-danger" [class.d-none]="firstName.valid || firstName.untouched " > first Name is required field </small>
+                            <div class="form-control-feedback">
+                              <i class="icon-user-check text-muted"></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="form-group form-group-feedback form-group-feedback-right">
+                            <input type="text" class="form-control" placeholder=" Last Name " [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" #lastName="ngModel" required
+                                   [class.is-invalid]="lastName.invalid  && lastName.touched ">
+                            <small class ="text-danger" [class.d-none]="lastName.valid || lastName.untouched " > lastName is required field </small>
+                            <div class="form-control-feedback">
+                              <i class="icon-user-check text-muted"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group form-group-feedback form-group-feedback-right">
+                            <input type="password" class="form-control" placeholder=" Enter password " [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" #password="ngModel" required
+                                   [class.is-invalid]="password.invalid  && password.touched ">
+                            <small class ="text-danger" [class.d-none]="password.valid || password.untouched " > password is required field </small>
+                            <div class="form-control-feedback">
+                              <i class="icon-user-lock text-muted"></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="form-group form-group-feedback form-group-feedback-right">
+                            <input type="password" class="form-control" placeholder=" confirm password " name="cPassword"  #cPassword="ngModel" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required
+                                   [class.is-invalid]="cPassword.invalid  && cPassword.touched ">
+                            <small class ="text-danger" [class.d-none]="cPassword.value==password.value || cPassword.untouched " > password and confirm password must be the same </small>
+                            <div class="form-control-feedback">
+                              <i class="icon-user-lock text-muted"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="text-md-center">
+                            <form action="/action_page.php">
+                              <label for="date" class="form-label" style="color: #6C757D ;width: 150px; height: 50px "><h6>Your Birthday:</h6></label>
+                              <input type="date" id="date" name="date"  [(ngModel)]="user.date" [ngModelOptions]="{standalone: true}" #date="ngModel" required style="width: 200px; height: 40px ">
+
+                            </form>
+                            <div class="form-control-feedback">
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="card-footer bg-teal-100 text-right">
+                    <button type="submit" class="btn btn-teal btn-labeled btn-labeled-right" class ="float-right" (click)="userRegister()"  class="icon-plus-circle2" style="background-color: #1C7B73 ;  border: none ; width: 150px; height: 50px ; color: #FFFFFF" > Create account</button>
+                    <button class="float-left btextual" [routerLink]="['/Sign-In']" style="background-color: #E9F6F5 ;  border: none ; width: 200px; height: 50px ; color: #12524C"> Existing user ? Login here ! </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- /registration form -->
+
+      </div>
+      <!-- /content area -->
+
+
+      <!-- Footer -->
+      <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
+        <div class="text-center d-lg-none w-100">
+          <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+            <i class="icon-unfold mr-2"></i>
+            Footer
+          </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-footer">
+						<span class="navbar-text">
+							&copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a href="https://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+						</span>
+
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Support</a></li>
+            <li class="nav-item"><a href="https://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+            <li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink"><i class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /footer -->
+
+    </div>
+    <!-- /inner content -->
+
+  </div>
+  <!-- /main content -->
+
+</div>
+<!-- /page content -->
+
+
+
+

@@ -1,0 +1,135 @@
+<body>
+<!-- Main navbar -->
+<div class="navbar navbar-expand-lg navbar-dark navbar-static">
+  <div class="navbar-brand ml-2 ml-lg-0">
+    <a href="index.html" class="d-inline-block">
+      <img src="../../../../global_assets/images/logo_light.png" alt="">
+    </a>
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center ml-auto">
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link">
+          <i class="icon-lifebuoy"></i>
+          <span class="d-none d-lg-inline-block ml-2">Support</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link">
+          <i class="icon-user-plus"></i>
+          <span class="d-none d-lg-inline-block ml-2">Register</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link">
+          <i class="icon-user-lock"></i>
+          <span class="d-none d-lg-inline-block ml-2">Login</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /main navbar -->
+
+
+<!-- Page content -->
+<div class="page-content">
+
+  <!-- Main content -->
+  <div class="content-wrapper">
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+      <!-- Content area -->
+      <div class="content d-flex justify-content-center align-items-center">
+
+        <!-- Login form -->
+        <form loginForm="ngForm" >
+          <small class="text-danger">{{msg}}</small>
+          <div class="card mb-0" style="width: 600px" >
+            <div class="card-body">
+              <div class="text-center mb-3">
+                <i class="icon-reading icon-2x text-secondary border-secondary border-3 rounded-pill p-3 mb-3 mt-1"></i>
+                <h5 class="mb-0">Login to your account</h5>
+                <span class="d-block text-muted">Enter your credentials below </span>
+              </div>
+
+              <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="email" class="form-control" placeholder="please enter your email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                       #email="ngModel"
+                       [class.is-invalid]="email.invalid  && email.touched ">
+                <small class ="text-danger" [class.d-none]="email.valid || email.untouched " > Email is required field </small>
+
+                <div class="form-control-feedback">
+                  <i class="icon-user text-muted"></i>
+                </div>
+              </div>
+
+              <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="password" class="form-control" placeholder="please enter your password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required #password="ngModel"
+                       [class.is-invalid]="password.invalid  && password.touched ">
+                <small class ="text-danger" [class.d-none]="password.valid || password.untouched " > Email is required field </small>
+                <div class="form-control-feedback">
+                  <i class="icon-lock2 text-muted"></i>
+                </div>
+              </div>
+
+              <div class="form-group" >
+
+                <button type="submit" (click)="checkLogin()" class="btn btn-primary btn-block"  style="background-color: #f58646 ;  border: none" >Sign in </button>
+              </div>
+              <button class ="float-right" [routerLink]="['/Registration']">New user ? Please register here ! </button>
+              <!-- button class ="float-right" (click)="gotoregistration()">New user ? Please register here ! </button> -->
+            </div>
+          </div>
+        </form>
+        <!-- /login form -->
+
+      </div>
+      <!-- /content area -->
+
+
+      <!-- Footer -->
+      <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
+        <div class="text-center d-lg-none w-100">
+          <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+            <i class="icon-unfold mr-2"></i>
+            Footer
+          </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-footer">
+						<span class="navbar-text">
+							&copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a href="https://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+						</span>
+
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Support</a></li>
+            <li class="nav-item"><a href="https://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+            <li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink"><i class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+          </ul>
+
+        </div>
+      </div>
+      <!-- /footer -->
+
+    </div>
+    <!-- /inner content -->
+
+  </div>
+  <!-- /main content -->
+
+</div>
+
+<!-- /page content -->
+
+</body>
+
+<!-- Mirrored from demo.interface.club/limitless/demo/Template/layout_1/LTR/default/full/login_simple.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Apr 2022 23:37:56 GMT -->
+
+
+
+<!-- Mirrored from demo.interface.club/limitless/demo/Template/layout_1/LTR/default/full/login_simple.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Apr 2022 23:37:56 GMT -->
+
