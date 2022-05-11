@@ -20,14 +20,17 @@
     <div *ngFor="let complaint of complaints" class="col-md-6 col-xl-3">
        <div class="card m-b-30">
           <div class="card-body row">
+            <div class="col-6">
+               <a href=""><img src="../../assets/global_assets/images/demo/users/complaint.png" alt="" class="img-fluid rounded-circle w-60"></a>
+            </div>
              <div class="col-6 card-title align-self-center mb-0">
                 <h5>{{complaint?.object}}</h5>
-                <p class="m-0">{{complaint?.description}}</p>
+                <p class="m-0">{{complaint?.statut}}</p>
              </div>
           </div>
           <ul class="list-group list-group-flush">
-             <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{complaint?.StatusComplaint}}</li>
-             <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{complaint?.dateComplaint}}</li>
+             <li class="list-group-item">{{complaint?.description}}</li>
+             <li class="list-group-item"> Date : {{complaint?.dateComplaint}}</li>
           </ul>
           <div class="card-body">
              <div class="float-right btn-group btn-group-sm">
@@ -60,8 +63,8 @@
                <input type="email" ngModel name="description" class="form-control" id="description" placeholder="description" required>
             </div>
             <div class="form-group">
-               <label for="phone">StatusComplaint</label>
-               <input type="text" ngModel name="StatusComplaint" class="form-control" id="StatusComplaint" placeholder="StatusComplaint" required>
+               <label for="phone">statut</label>
+               <input type="text" ngModel name="statut" class="form-control" id="statut" placeholder="statut" required>
             </div>
             <div class="form-group">
                <label for="phone">dateComplaint</label>
@@ -99,8 +102,8 @@
                      <input type="email" ngModel="{{editComplaint?.description}}" name="description" class="form-control" id="description" placeholder="description">
                   </div>
                   <div class="form-group">
-                     <label for="StatusComplaint">StatusComplaint</label>
-                     <input type="text" ngModel="{{editComplaint?.StatusComplaint}}" name="StatusComplaint" class="form-control" id="StatusComplaint" placeholder="StatusComplaint">
+                     <label for="statut">statut</label>
+                     <input type="text" ngModel="{{editComplaint?.statut}}" name="statut" class="form-control" id="statut" placeholder="statut">
                   </div>
                   <div class="form-group">
                      <label for="dateComplaint">dateComplaint</label>
