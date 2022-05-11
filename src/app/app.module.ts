@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import { FormsModule } from '@angular/forms';
 import { ChartsComponent } from './charts/charts.component';
-import { PdfComponent } from './pdf/pdf.component';
+
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { PdfComponent } from './pdf/pdf.component';
     HomeComponent,
     InvitationsComponent,
     ChartsComponent,
-    PdfComponent
+   
   
   ],
   imports: [
