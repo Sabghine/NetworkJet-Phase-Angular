@@ -31,6 +31,7 @@ export class SendInvitationComponent implements OnInit {
 
   onSubmit(){
     console.log(this.invitation);
+
     this.sendInvitation();
     this.message= "Invitation" + "   " + this.invitation.idInvitation + " " + "ajouté avec succés!";
 

@@ -19,4 +19,16 @@ export class InvitationService {
     return this._http.post<Invitation>(`${this.invitationsUrl}`, inv);
   }
 
+  getInvitationById (id: number):Observable<any>{
+    return this._http.get<Invitation>(`${this.invitationsUrl}/getInvitationById/${id}`)
+  }
+
+  updateInvitation(id: number, invitation: Invitation): Observable<Invitation>{
+    return this._http.put<Invitation>(`${this.invitationsUrl}/${id}`, invitation);
+  }
+
+  deleteInvitationById(id:number){
+    return this._http.delete(`${this.invitationsUrl}/${id}`);
+  }
+
 }

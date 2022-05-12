@@ -1,0 +1,44 @@
+<ul>
+
+  <li class="active">
+
+    <a [routerLink]="['savePlanning']">
+      <button class="btn btn-success">Save planning</button>
+    </a>
+  </li>
+
+  <!-- Basic table -->
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Plannings list</h5>
+    </div>
+
+    <li></li>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre de jours</th>
+          <th>Id du vol</th>
+          <th>Fichier</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of listPlannings">
+        <tr>
+          <td>{{ u.idPlanning }}</td>
+          <td>{{ u.nb_jours }}</td>
+          <td>{{ u.idVol }}</td>
+          <td>{{ u.fichierPlanning }}</td>
+          <td><button (click)="updatePlanning(u.idPlanning)" class="btn btn-primary">Edit</button></td>
+          <td><button class="btn btn-outline-danger">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /basic table -->
+</ul>
+
+

@@ -1,23 +1,15 @@
-<ul>
-
-  <li class="active">
-
-    <a [routerLink]="['sendInvitation']">
-      <button class="btn btn-success">Send Invitation</button>
-    </a>
-  </li>
-  <router-outlet></router-outlet>
-
   <!-- Basic table -->
   <div class="card">
     <div class="card-header">
       <h5 class="card-title">Invitations list</h5>
     </div>
-
-    <li></li>
-
-    <div class="table-responsive">
-      <table class="table">
+    <div class="chercher-produit">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+             autocomplete="off" placeholder="&#61442;  Taper pour chercher..">
+    </div>
+    <div class="card m-5 p-2">
+    <div class="card-body">
+      <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
         <tr>
           <th>Id</th>
@@ -34,14 +26,15 @@
           <td>{{ u.message }}</td>
           <td>{{ u.token }}</td>
           <td>{{ u.email }}</td>
-          <td><button class="btn btn-primary">Edit</button></td>
-          <td><button class="btn btn-outline-danger">Delete</button></td>
+          <td><button (click)="updateInvitation(u.idInvitation)" class="btn btn-primary">Edit</button></td>
+          <td><button class="btn btn-outline-danger" (click)="deleteInvitation(u.idInvitation)">Delete</button></td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
+  </div>
+
   <!-- /basic table -->
-</ul>
 
 

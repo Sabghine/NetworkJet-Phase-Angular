@@ -1,0 +1,27 @@
+<form id="monForm" onsubmit="validateForm(this)">
+  <fieldset class="mb-3">
+    <legend class="text-uppercase font-size-sm font-weight-bold">Send invitation</legend>
+
+    <div class="form-group row">
+      <label class="col-form-label col-lg-2">Date expiration</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="date" name="date" [(ngModel)]="invitation.date_expiration" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-form-label col-lg-2">Email</label>
+      <div class="col-lg-10">
+        <input id="invitation" type="text" name="invitation.email" class="form-control" [(ngModel)]="invitation.email" required>
+      </div>
+    </div>
+
+  </fieldset>
+
+  <input routerLink="/invitations" class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="onSubmit()">
+
+</form>
+
+
+
+

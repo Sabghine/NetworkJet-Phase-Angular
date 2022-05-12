@@ -1,52 +1,38 @@
-<form id="monForm" onsubmit="validateForm(this)">
+<form id="monForm" onsubmit="validateForm(this)" #f="ngForm">
   <fieldset class="mb-3">
     <legend class="text-uppercase font-size-sm font-weight-bold">Send invitation</legend>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">Date expiration</label>
       <div class="col-lg-10">
-        <input class="form-control" type="date" name="date" [(ngModel)]="invitation.date_expiration" required>
+        <input class="form-control" type="date" name="date"  [(ngModel)]="invitation.date_expiration" required required #d="ngModel">
+        <div class="alert alert-info" *ngIf="d.invalid && d.touched">
+          <div *ngIf="d.hasError('required')"> Date is a required field</div>
+        </div>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="col-form-label col-lg-2">message</label>
+      <label class="col-form-label col-lg-2">Message</label>
       <div class="col-lg-10">
-        <input type="text" name="invitation" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message" required>
+        <input type="text" name="invitation.message" class="form-control" placeholder="Enter your message..." [(ngModel)]="invitation.message" >
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-form-label col-lg-2">Email</label>
       <div class="col-lg-10">
-        <input id="invitation" type="text" name="invitation.email" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email" required>
+        <input id="invitation" type="text" name="invitation.email" class="form-control" placeholder="Enter your email..." [(ngModel)]="invitation.email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #em="ngModel">
+        <div class="alert alert-info" *ngIf="em.invalid && em.touched">
+          <div *ngIf="em.hasError('required')"> Email is a required field</div>
+          <div *ngIf="em.hasError('pattern')"> respect this format test@gmail.com</div>
+        </div>
       </div>
     </div>
     </fieldset>
 
-  <input routerLink="/invitations" class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="onSubmit()">
+  <input routerLink="/invitations" class="btn btn-success" type="submit" name="submit_reg" value="Submit" [disabled]="f.invalid" (click)="onSubmit()">
 
 </form>
-
-  <script>
-    function validateForm(evt) {
-      const name = document.getElementById("invitation").value;
-      const password = document.getElementById("invitation.message").value;
-
-      if (name == null || name == "") {
-        alert("Name can't be blank");
-        evt.preventDefault();
-      } else if (password.length < 6) {
-        alert("Password must be at least 6 characters long.");
-        evt.preventDefault();
-      }
-
-      // Cas de réussite
-
-      // Empêche le submit du formulaire
-      evt.preventDefault();
-    }
-
-  </script>
 
 
