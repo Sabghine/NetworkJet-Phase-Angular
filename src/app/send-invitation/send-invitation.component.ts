@@ -12,7 +12,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class SendInvitationComponent implements OnInit {
   invitation:Invitation = new Invitation();
   message:string;
-  constructor(private invitationService:InvitationService, private _router:Router){}
+  constructor(private invitationService:InvitationService, private _router:Router){
+  }
 
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class SendInvitationComponent implements OnInit {
     this.message= "Invitation" + "   " + this.invitation.idInvitation + " " + "ajouté avec succés!";
 
   }
+
 
 
 }

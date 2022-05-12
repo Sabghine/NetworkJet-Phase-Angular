@@ -27,13 +27,16 @@ export class InvitationsComponent implements OnInit {
 
   }
 
-  deleteInvitation(id:number){
-    this._service.deleteInvitationById(id).subscribe(()=>this._service.getInvitation().subscribe(res=>{this.listInvitations=res})
-  );
+  deleteInvitation(invitation: Invitation){
+    let i = this.listInvitations.indexOf(invitation);
+    this._service.deleteInvitationService(invitation.idInvitation).subscribe(
+      ( )=>this.listInvitations.splice(i,1)
+    )
   }
 
-  updateInvitation(invitation_id: number){
-    this.router.navigate(['updateInvitation', invitation_id]);
+  updateInvitation(invitation: Invitation){
+    this._service.updateInvitation(invitation);
+    this.router.navigate(['/update-invitation']);
   }
 
   ngOnDestroy(): void {

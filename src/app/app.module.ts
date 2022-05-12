@@ -11,6 +11,9 @@ import {FormsModule} from "@angular/forms";
 import { UpdateInvitationComponent } from './update-invitation/update-invitation.component';
 import { PlanningsComponent } from './plannings/plannings.component';
 import {DataTablesModule} from "angular-datatables";
+import { AddPlanningComponent } from './add-planning/add-planning.component';
+import {RecaptchaFormsModule, RecaptchaModule} from "ng-recaptcha";
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,18 @@ import {DataTablesModule} from "angular-datatables";
     InvitationsComponent,
     SendInvitationComponent,
     UpdateInvitationComponent,
-    PlanningsComponent
+    PlanningsComponent,
+    AddPlanningComponent,
+    StatisticsComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         DataTablesModule,
+        RecaptchaFormsModule,
+        RecaptchaModule,
+
         FormsModule
 
     ],

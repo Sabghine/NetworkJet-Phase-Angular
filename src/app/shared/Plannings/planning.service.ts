@@ -16,7 +16,7 @@ export class PlanningService {
     return this._http.get<Planning[]>(this.planningsUrl);
   }
 
-  createInvitation(planning: Planning): Observable<Planning>{
+  createPlanning(planning: Planning): Observable<Planning>{
     return this._http.post<Planning>(`${this.planningsUrl}`, planning);
   }
 

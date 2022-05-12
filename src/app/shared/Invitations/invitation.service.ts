@@ -27,7 +27,7 @@ export class InvitationService {
     return this._http.put<Invitation>(`${this.invitationsUrl}/${id}`, invitation);
   }
 
-  deleteInvitationById(id:number){
+  deleteInvitationService(id:number){
     return this._http.delete(`${this.invitationsUrl}/${id}`);
   }
 
