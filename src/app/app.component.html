@@ -33,6 +33,8 @@
           <ul class="list-group list-group-flush">
              <li class="list-group-item">{{complaint?.description}}</li>
              <li class="list-group-item"> Date : {{complaint?.dateComplaint}}</li>
+             <li class="list-group-item" >Complaint from :<strong> <p style="color:rgb(20, 5, 120)"> Sabrine</strong> </li>
+
           </ul>
           <div class="card-body">
              <div class="float-right btn-group btn-group-sm">
@@ -49,7 +51,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="addComplaintModallLabel">Add Complaint</h5>
+            <h5 class="modal-title" id="addComplaintModallLabel">Add your Complaint</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -57,20 +59,20 @@
          <div class="modal-body">
             <form #addForm="ngForm" (ngSubmit)="onAddComplaint(addForm)">
             <div class="form-group">
-               <label for="name">object</label>
-               <input type="text" ngModel name="object" class="form-control" id="object" placeholder="object" required>
+               <label for="name">Object</label>
+               <input type="text" ngModel name="object" class="form-control" id="object" placeholder="Please write the object of your complaint" required>
             </div>
             <div class="form-group">
-               <label for="email">description</label>
-               <input type="email" ngModel name="description" class="form-control" id="description" placeholder="description" required>
+               <label for="email">Description</label>
+               <input type="email" ngModel name="description" class="form-control" id="description" placeholder="Describe your concern" required>
             </div>
             <div class="form-group">
-               <label for="phone">statut</label>
-               <input type="text" ngModel name="statut" class="form-control" id="statut" placeholder="statut" required>
+               <label for="phone">Statut</label>
+               <input type="text" ngModel name="statut" class="form-control" id="statut" placeholder="How bad was it?" required>
             </div>
             <div class="form-group">
-               <label for="phone">dateComplaint</label>
-               <input type="text" ngModel name="dateComplaint" class="form-control" id="dateComplaint" placeholder="dateComplaint" required>
+               <label for="phone">Complaint Date</label>
+               <input type="text" ngModel name="dateComplaint" class="form-control" id="dateComplaint" placeholder="Insert the date in which that happened YY/MM/DD" required>
             </div>
             <div class="modal-footer">
                <button type="button" id="add-complaint-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
