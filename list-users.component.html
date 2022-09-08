@@ -1,0 +1,94 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row" [hidden]="!deleteMessage">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>news Data Deleted</strong>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h1 class="card-category" style="color: #12524C"> Voici la table de tout le</h1>
+            </div>
+  
+            <div class="card-body">
+              <div class="table-responsive">
+                <label for="site-search">Search the site:</label>
+                <input><button type="search" (click)="retrieveUserById(user.id)" id="site-search" name="id">search</button>
+  
+  
+                <table  class="table table-hover" datatable [dtOptions]="dtOptions"
+                        [dtTrigger]="dtTrigger"  >
+  
+                  <thead class=" text-primary">
+                  <tr>
+                    <th class="font-weight-bold" style="color: #252B36">id</th>
+                    <th class="font-weight-bold" style="color: #252B36 "> Nom</th>
+                    <th class="font-weight-bold" style="color: #252B36">  Prenom</th>
+                    <th class="font-weight-bold" style="color: #252B36"> Email </th>
+                    <th class="font-weight-bold" style="color: #252B36"> Technologie </th>
+                    <th class="font-weight-bold" style="color: #252B36"> Role </th>
+                    <th class="font-weight-bold" style="color: #252B36"> NumeroTelephone </th>
+  
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let user of users ">
+                    <td class="font-weight-bold" style="color: #252B36" > {{user.id}}</td>
+                    <td>{{user.nom}}</td>
+                    <td>{{user.prenom}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.technologie}}</td>
+                    <td>{{user.roles}}</td>
+                    <td>{{user.num_tel}}</td>
+                    <td><button (click)="deleteUser(user.id)" style="background-color: #E30613 ;  border: none"class='btn btn-primary'><i class="fa fa-futboll-0" style="background-color: #E30613 ;  border: none">Delete</i></button>
+  
+                  </tr>
+                  </tbody><br>
+                </table>
+              </div>
+            </div>
+  
+  
+  
+                    <!-- Modal body -->
+  
+  
+                    <!-- Modal footer -->
+  
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  <!--
+    <tr *ngFor="let user of users ">
+      <h1 class="font-weight-bold text-primary"> {{user.id}}</h1>
+      <h2>{{user.firstName}}</h2>
+      <h3>{{user.lastName}}</h3>
+      <h4>{{user.email}}</h4>
+  
+      <td>{{user.date}}</td>
+      <td><button (click)="deleteUser(user.id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+  
+  
+    </tr>
+  -->
+  
